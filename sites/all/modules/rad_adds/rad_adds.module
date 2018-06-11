@@ -1,0 +1,44 @@
+<?php
+/**
+ * @file
+ * Module file for rad_adds.
+ */
+
+/**
+ *
+ * Implement hook_help().
+ */
+function rad_adds_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#rad_adds':
+      return '<p>' . t(utf8_encode('This module add special functios to site. '), array('@blocks' => url('admin/structure/block'))) . '</p>';
+      break;
+  }
+}
+/**
+ * Implements hook_jcarousel_skin_info().
+ */
+function rad_adds_jcarousel_skin_info() {
+  $skins = array();
+
+  $skins['rad'] = array(
+    'title' => t('Skin RAD'),
+    'file' => 'skins/rad/jcarousel-rad.css',
+  );
+
+  return $skins;
+}
+/*
+ * Implementación del hook_form_alter
+ * **/
+function rad_adds_form_alter(&$form, &$form_state, $form_id){
+	if( $form_id == 'user_login'){
+		$form['custom_text'] = array(
+			'#type' => 'markup',
+			'#prefix' => '<div id="login-form-text-wrapper">',
+			'#suffix' => '</div>',
+			'#markup' => '<div class="first-text">¿No tiene clave de acceso?</div><div class="second-text">Por favor comuniquese con la dirección de su programa</div>',
+      '#weight' => 500,
+		);
+	}
+}

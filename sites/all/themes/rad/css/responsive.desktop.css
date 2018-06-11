@@ -1,0 +1,79 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Estilos menus principal */
+
+#block-nice-menus-1 {
+    left: 301px;
+    position: absolute;
+    top: 93px;
+}
+
+#block-nice-menus-1 #nice-menu-1 li a {
+    background: none repeat scroll 0 0 #BEBCBD;
+    border-radius: 7px 7px 7px 7px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 13px;
+	font-family: 'open_sanssemibold';
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px 0 10px;
+    text-transform: uppercase;
+}
+#block-nice-menus-1 #nice-menu-1 li.active-trail a{
+	background:#52525A; 
+}
+
+.view-recursos label{
+	color: #666666;
+	float: left;
+	font-family: open_sansregular;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: normal;
+}
+
+.view-recursos .views-widget{
+	margin-left: 5px;
+	float: left;
+}
+
+#block-system-main-menu{
+		/*display: none;*/
+}
+
+.view-recursos .views-exposed-widgets{
+	border-bottom: 1px dashed #AFAFAF;
+	padding-bottom: 10px;
+	margin-bottom: 50px;
+   padding-bottom: 25px;
+}
+
+.view-recursos .form-text{
+	background: url(images/txt-resources-bg.png) no-repeat center center;
+	width: 281px;
+	height: 23px;
+	line-height: 23px;
+	font-size: 12px;
+	font-family: 'open_sanssemibold';
+	color: #666;
+	border: none;
+}
+
+#edit-title-wrapper{
+	clear: both;
+}
+
+#block-system-main-menu{
+	display: none;
+}
+#content .view-id-eventos.view-display-id-page_3 .views-view-grid .eventos-lista, #content .view-id-eventos.view-display-id-page_2 .views-view-grid .eventos-lista{
+	width: auto;
+}

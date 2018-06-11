@@ -1,0 +1,16 @@
+#simple_gmap img, 
+#simple_gmap embed, 
+#simple_gmap object, 
+#simple_gmap video{
+	max-width: none;
+}
+#simple_gmap #content_simple_gmap_border,
+#simple_gmap #content_simple_gmap_border #content_simple_gmap {
+	background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+#simple_gmap #content_marker_simple_gmap{
+	display: none;
+}

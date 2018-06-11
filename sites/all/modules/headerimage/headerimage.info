@@ -1,0 +1,13 @@
+name = Header Image
+description = Displays an image in a header block.
+package = Other
+core = 7.x
+configure = admin/structure/headerimage
+
+
+; Information added by drupal.org packaging script on 2012-11-28
+version = "7.x-1.1"
+core = "7.x"
+project = "headerimage"
+datestamp = "1354139860"
+

@@ -1,0 +1,210 @@
+<?php
+/**
+* @file
+* Module file for rad extension rate.
+*/
+
+/**
+* Implements hook_help
+*/
+
+function rad_load_help($path, $arg) {
+	global $base_url;
+	switch ($path) {
+		case 'admin/help#rad_load':
+		$buffer = '';
+		$buffer .= 'El módulo de carga le permite agregar información a través de un archivo de texto plano.<br>
+		';
+
+
+		return $buffer;
+	}
+}
+
+/**
+* Implements hook_form_alter
+*/
+
+
+function rad_load_menu(){
+	$items = array();
+
+	$items['admin/config/rad_load'] = array(
+		'title' => 'Carga base de datos docentes',
+		'description' => 'Módulo de carga a través de archivo de texto separado por comas.',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('rad_load_admin_files'),
+		'access arguments' => array('administer site configuration'),
+		'type' => MENU_NORMAL_ITEM
+	);
+	return $items;
+}
+
+function rad_load_admin_files(){
+	return drupal_get_form('rad_load_uploadform');
+}
+
+function rad_load_uploadform(){
+	//Declara el array que contendrá el formulario
+	$form = array();
+
+	$form['#attributes'] = array('enctype' => "multipart/form-data");
+
+	$form['csvfile_help'] = array(
+		'#type' => 'markup',
+		'#prefix' => '<div id="add_element_wraper">',
+		'#suffix' => '</div>',
+		'#markup' => '
+			Archivo separado por comas a cargar
+		',
+	);
+
+	$form['csvfile'] = array(
+		'#type' => 'file',
+		'#title' => t("Upload a CSV file"),
+		/*'#size' => 40,*/
+	);
+	$form['submit'] = array(
+		'#type' => 'submit',
+		'#value' => t('Submit'),
+	);
+
+	return $form;
+}
+
+
+function rad_load_uploadform_submit($form, &$form_state){
+	// create a csv upload directory in sites/default/files if it doesn't exist
+	// yet
+	set_time_limit(0);
+	ini_set('memory_limit', '900M');
+	$filepath = 'public://csvuploads';
+	file_prepare_directory($filepath, FILE_CREATE_DIRECTORY);
+
+	// save the uploaded file
+	$file = file_save_upload('csvfile', array('file_validate_extensions' => array('CSV')), $filepath, FILE_EXISTS_REPLACE);
+	drupal_set_message('El archivo cargado es: <pre>'.print_r($file, TRUE).'</pre>');
+
+	// now read from it
+	$realpath = drupal_realpath($file->uri);
+	$fh = fopen($realpath, 'r');
+	$count = 0;
+	while(!feof($fh)) {
+		if( $count != 0 ){
+			$string_row_array[] = fgets($fh);
+		}else{
+			$string_headers = fgets($fh);
+		}
+		$count++;
+	}
+	fclose($fh);
+
+	$string_headers_array = explode(",", $string_headers);
+
+
+	if( trim($string_headers_array[0]) != 'Razón Social' ) $error[] = 'Error en el encabezado: Razón Social';
+	if( trim($string_headers_array[1]) != 'Identificación' ) $error[] = 'Error en el encabezado: Identificación';
+	if( trim($string_headers_array[2]) != 'Matrícula' ) $error[] = 'Error en el encabezado: Matrícula';
+	if( trim($string_headers_array[3]) != 'Dirección' ) $error[] = 'Error en el encabezado: Dirección';
+	if( trim($string_headers_array[4]) != 'Teléfonos' ) $error[] = 'Error en el encabezado: Teléfonos';
+	if( trim($string_headers_array[5]) != 'Zona Postal' ) $error[] = 'Error en el encabezado: Zona Postal';
+	if( trim($string_headers_array[6]) != 'Nombre Municipio' ) $error[] = 'Error en el encabezado: Nombre Municipio';
+	if( trim($string_headers_array[7]) != 'Identificación Representante legal' ) $error[] = 'Error en el encabezado: Identificación Representante legal';
+	if( trim($string_headers_array[8]) != 'Código CIIU' ) $error[] = 'Error en el encabezado: Código CIIU';
+
+	if( empty( $error ) ){
+		$content_load_counter = 0;
+		$content_load_nit_empty = 0;
+		$content_load_row_empty = 0;
+		foreach( $string_row_array as $rows){
+
+			if( $rows != '' ) $fields_array_data = explode(",",$rows);
+			if( !empty( $fields_array_data ) ){
+
+				if( $fields_array_data[1] != '' ){
+
+					$query =  new EntityFieldQuery();
+					$result = $query
+						->entityCondition('entity_type', 'node')
+						->propertyCondition('status', 1)
+						->propertyCondition('type', 'empresas', '=')
+						->fieldCondition('field_nit', 'value', $fields_array_data[1], '=')
+						->execute();
+
+					if(count($result)>0){
+						$node = '';
+						$keys = array_keys($result['node']);
+						$node_new = node_load($keys[0]);
+						$node_new->title = $fields_array_data[0];
+					}else{
+						$node_new = new stdClass();
+						$node_new->type = 'empresas';
+						node_object_prepare($node_new);
+						$node_new->title = $fields_array_data[0];
+						$node_new->status = 1;
+						$node_new->language = 'es';
+						$node_new->uid = '1';
+					}
+
+					// asigna al nodo el nit, la matricula, direccion, tlefono, y zona postal
+					$node_new->field_nit['und'][0]['value'] = $fields_array_data[1];
+					$node_new->field_matr_cula['und'][0]['value'] = $fields_array_data[2];
+					$node_new->field_direcci_n['und'][0]['value'] = $fields_array_data[3];
+					$node_new->field_tel_fonos['und'][0]['value'] = $fields_array_data[4];
+					$node_new->field_zona_postal['und'][0]['value'] = $fields_array_data[5];
+
+					$term = $fields_array_data[6];
+					// verificamos que la ciudad no exista ya en los términos, si existe la tomamos si no existe, creamos el término
+					$query =  new EntityFieldQuery();
+					$result = $query->entityCondition('entity_type', 'taxonomy_term')
+									->propertyCondition('vid', 2)
+									->propertyCondition('name', $term)
+									->execute();
+					if(count($result)>0){
+						$keys = array_keys($result['taxonomy_term']);
+						$term_node = taxonomy_term_load($keys[0]);
+					}else{
+						$term_node = new stdClass();
+						$term_node->vid = 2;
+						$term_node->name = $term;
+						taxonomy_term_save($term_node);
+					}
+					//  se asigna el término al nodo
+					$node_new->field_nombre_municipio['und'][0]['tid'] = $term_node->tid;
+					//  asigna identificacion del representante y el codigo ciiu
+					$node_new->field_identificaci_n_representan['und'][0]['value'] = $fields_array_data[7];
+					$node_new->field_c_digo_ciiu['und'][0]['value'] = $fields_array_data[8];
+
+					node_save( $node_new );
+					$content_load_counter++;
+				}else{
+					$content_load_nit_empty++;
+				}
+			}else{
+				$content_load_row_empty++;
+			}
+
+		}
+		if( $content_load_nit_empty != 0 ) drupal_set_message( $content_load_nit_empty.' contenidos sin NIT, no fueron cargados' , 'error');
+		if( $content_load_row_empty != 0 ) drupal_set_message( $content_load_row_empty.' filas en el archivo vacias, no fueron cargadas' , 'error');
+		drupal_set_message("El contenido ha sido cargado");
+	}else{
+		$error_string = '';
+		foreach( $error as $current_error){
+			$error_string .= $current_error.'<br>';
+		}
+		drupal_set_message( $error_string, 'error');
+	}
+}
+/*
+ * Implementacion hook_menu_alter
+ */
+function rad_load_menu_alter(&$items) {
+	#print_r($items);
+	if(preg_match('/(alcatel|amoi|android|avantgo|blackberry|benq|cell|cricket|docomo|elaine|htc|iemobile|iphone|ipad|ipaq|ipod|j2me|java|midp|mini|mmp|mobi|motorola|nec-|nokia|palm|panasonic|philips|phone|sagem|sharp|sie-|smartphone|sony|symbian|t-mobile|telus|up\.browser|up\.link|vodafone|wap|webos|wireless|xda|xoom|zte)/i', $_SERVER['HTTP_USER_AGENT']))
+		return true;
+	else
+		return false;
+}
+
+?>

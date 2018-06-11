@@ -1,0 +1,393 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Increase the body font size on small devices */
+html {
+  font-size: 112.5%;
+}
+/* Estilos menu princial */
+#block-nice-menus-1 {
+    display: none;
+}
+
+ul.nice-menu, ul.nice-menu ul,
+#block-nice-menus-1 #nice-menu-1 ul{
+	width: 100%;
+}
+#block-views-recursos-block,
+#block-views-eventos-block,
+#block-views-proyectos-rad-block,
+#block-views-miembros-block{
+	width: auto;	
+}
+#block-views-miembros-block .view-header,
+#block-views-proyectos-rad-block .view-header,
+#block-views-recursos-block .view-header,
+#block-views-eventos-block .view-header{
+	left: auto;
+	right: 10px;
+}
+#block-locale-language{
+	display: none;
+}
+#block-views-miembros-block{
+	float: none;
+	width: auto;
+	
+}
+.one-sidebar .sidebar{
+	width: auto;
+}
+#block-block-16,
+#block-twitter-block-1,
+#block-block-5,
+#block-block-6,
+#block-block-4{
+	display: none;
+}
+#block-nice-menus-1 #nice-menu-1 li a {
+    background: none repeat scroll 0 0 #BEBCBD;
+    border-radius: 7px 7px 7px 7px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 9px;
+	 font-family: 'open_sanssemibold';
+    height: 25px;
+    line-height: 25px;
+    padding: 0 3px 0 3px;
+    text-transform: uppercase;
+}
+#block-nice-menus-1 #nice-menu-1 li {
+    margin-right: 3px;
+	 margin-top: 2px;
+	float: none;
+	width: 100%; 
+}
+.phrase-bg{
+	height: 60px;
+}
+#block-block-2,
+#block-views-slides-block{
+	display: none;
+}
+#logo{
+	margin-left: 5px;
+}
+#block-menu-block-1,
+#block-search-form{
+	display: none;
+}
+
+#block-nice-menus-1{
+	left: 0;
+	position: static;
+	top: 0;
+}
+
+#block-nice-menus-1 li a{
+	width: 100%;
+}
+#block-locale-language ul.language-switcher-locale-url li a{
+	font-size: 9px;
+	height: 25px;
+	line-height: 25px;
+}
+
+#block-system-user-menu{
+	left: 448px;
+}
+#block-locale-language{
+	left: 485px;
+	top: 65px;
+}
+#block-ajax-register-ajax-register-block{
+	left:155px;
+	top: 100PX;
+}
+
+
+#content table.views-view-grid{
+	width: 230px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.views-view-grid td{
+	width: 230px;
+}
+.views-view-grid td.col-2,
+.views-view-grid td.col-3{
+	display: none;
+}
+#top-view{
+	display: none;
+}
+
+
+
+#block-block-3,
+#block-block-13,
+#block-block-10,
+#block-views-asociados-block,
+#block-menu-block-2, #block-menu-block-3, #block-menu-block-4, #block-menu-block-5{
+	display: none;
+}
+
+#block-system-main-menu ul li{
+	list-style: none;
+}
+#block-system-main-menu ul li a{
+	background: #BEBCBD;
+	border-radius: 7px 7px 7px 7px;
+	color: white;
+	display: inline-block;
+	font-size: 13px;
+	font-family: 'open_sanssemibold';
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px 0 10px;
+	text-transform: uppercase;
+	margin-top: 3px;
+	width: 80%;
+}
+#block-system-main-menu ul li ul li a{
+	background: none;
+	border-radius: 0;
+	text-decoration: none;
+	color: #999;
+	font-size: 10px;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	border-bottom: 1px dashed #666;
+}
+#block-system-user-menu{
+	position: absolute;
+	top: 70px;
+	left: 175px;
+}
+
+#block-views-proyectos-rad-block{
+	float: none;
+}
+.container{
+	width: 100%;
+}
+
+
+
+.ds-2col-stacked > .group-right,
+.ds-2col-stacked > .group-left{
+	float: none;
+	width: auto;
+}
+.contact-page .form-submit{
+	margin-left: 0px;
+}
+.page-div #content .field-name-field-pie-imagen{
+	float: none;
+	margin-top: 0;
+	margin-left: 0px;
+}
+.view-miembros .view-taxonomias li, .view-asociados .view-taxonomias li{
+	width: 80%;
+}
+.view-miembros .view-taxonomias li a.active, .view-asociados .view-taxonomias li a.active{
+	width: 100%;
+}
+.proyect-last .form-text{
+	border-radius: 5px;
+	background: none;
+	background: #FFF;
+	width: 270px;
+}
+#edit-submitted-informacion-del-programa-e-institucion-nivel-de-formacion{
+	font-size: 9px;	
+}
+#webform-component-adjuntos, #webform-component-informacion-del-programa-e-institucion, #webform-component-informacion-del-director-del-programa{
+	width: 280px;
+}
+.proyect-last label{
+	width: auto;
+}
+p{
+	margin-right: 10px;
+}
+.region-specific-baner{
+	display: none;
+}
+.proyect-last #edit-actions .form-submit{
+	margin-left: 0;
+}
+#block-simple-gmap-simple-gmap{
+	display: none;
+}
+#recurso-node-form #edit-actions .form-submit{
+	margin-left: 0;
+}
+#recurso-node-form .form-text,
+#recurso-node-form .form-textarea-wrapper textarea,
+#recurso-node-form #body-add-more-wrapper .form-textarea-wrapper textarea{
+	width: 240px;
+}
+.node-recurso-form #edit-field-sitio-web-und-0-url,
+.node-recurso-form #edit-field-sitio-web-und-0-title{
+	width: 130px;
+}
+.node-recurso-form #edit-field-universidad-und{
+	width: 230px;
+}
+#dhtml_menu-726,
+#dhtml_menu-573,
+#dhtml_menu-687{
+	display: none;
+}
+#edit-field-universidad-tid{
+	width: 220px;
+}
+#views-exposed-form-recursos-page-1{
+	font-size: 12px;
+}
+#views-exposed-form-eventos-page-2 #edit-field-tipo-de-evento-tid-wrapper{
+	float: none;
+}
+.view-id-eventos .content-event-list{
+	width: 230px;
+}
+.view-id-eventos .view-header{
+	width: 185px;
+	margin: auto;
+	float: none;
+}
+.view-id-eventos .view-filters{
+	width: auto;
+}
+#content .view-display-id-page_2 .views-view-grid td{
+	width: auto;
+}
+#content .view-id-eventos.view-display-id-page_3 .views-view-grid td, #content .view-id-eventos.view-display-id-page_2 .views-view-grid td{
+	width: 230px;
+}
+
+
+
+
+/* Estilos colorbox */
+#cboxOverlay{
+	width: 3000px;
+	height: 1000px;
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+#colorbox{
+	background: url(images/colorbox-bg2.png) no-repeat;
+	z-index: 11;
+	padding: 20px;
+}
+
+#cboxTopLeft{}
+#cboxTopCenter{}
+#cboxTopRight{}
+
+
+#cboxMiddleRight{}
+
+#cboxContent{overflow: hidden;}
+#cboxTitle{}
+#cboxCurrent{}
+#cboxNext{}
+#cboxPrevious{}
+#cboxSlideshow{}
+#cboxClose{
+	background: url("images/close-modal.png");
+	float: right;
+	position: absolute;
+	right: 50px;
+	top: 10px;
+	font-size: 0px;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	cursor: pointer;
+}
+
+
+#cboxMiddleLeft{}
+
+
+#cboxBottomLeft{}
+#cboxBottomCenter{}
+#cboxBottomRight{}
+#cboxLoadedContent{
+	padding-bottom: 20px;
+	overflow: hidden !important;
+}
+#cboxLoadedContent .group-left{
+	width: 150px;
+	float: left;
+}
+#cboxLoadedContent .group-right{
+	width: 150px;
+	float: right;
+	margin-right: 40px;
+}
+#cboxLoadedContent .group-right .field-name-title h2{
+	margin-bottom: 0;
+	font-size: 11px;
+}
+#cboxLoadedContent .group-right .field-name-title{
+	color: #f7ad0e;	
+}
+#cboxLoadedContent .group-right .field-name-field-subtitulo{
+	color: #999;
+	font-size: 10px;
+	font-style: italic;
+	margin-bottom: 20px;
+}
+#cboxLoadedContent .group-right .field-name-field-sitio-web a{
+	background: url("images/next-evento-bg2.png") no-repeat scroll right center transparent;
+  	display: block;
+	height: 24px;
+	line-height: 24px;
+	margin-left: 275px;
+	padding-right: 26px;
+	/*
+	position: absolute;
+	top: 0;
+	left: 0;*/
+}
+#cboxLoadedContent .field-name-body{
+	height: auto;
+	overflow: none;
+	overflow-y: auto; 
+	margin-bottom: 10px;
+	font-size: 10px;
+}
+#content .view-id-eventos.view-display-id-page_3 .views-view-grid .eventos-lista, #content .view-id-eventos.view-display-id-page_2 .views-view-grid .eventos-lista{
+	width: auto;
+}
+#block-sharethis-sharethis-block{
+	clear: right;
+}
+.node-type-miembros .group-left,
+.node-type-miembros .group-right,
+.node-type-evento .group-right,
+.node-type-evento .group-left{
+	float: none;
+	width: auto;
+}
+.view-movil-taxonomias- ul{
+	list-style: none;
+	padding-right: 10px;
+}
+.view-movil-taxonomias- ul li{
+	margin-left: 0px;
+}

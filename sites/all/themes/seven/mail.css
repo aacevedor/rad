@@ -1,0 +1,147 @@
+.boletin_rad_wrapper{
+    max-width: 780px;
+    background: url("http://www.radcolombia.org/images_boletin/boletin_header_2.jpg") repeat-x #F0F0F0;
+    overflow: hidden;
+    margin: auto;
+}
+.boletin_rad{
+    background: url("http://www.radcolombia.org/images_boletin/logo.png") no-repeat 15px 10px;
+    max-width: 780px;
+    font-family: sans-serif;
+    /*background: url("http://www.radcolombia.org/images_boletin/boletin_header.jpg") no-repeat #F0F0F0;*/
+    padding: 0px 20px 20px 20px;
+}
+
+.boletin_rad .field-name-field-subtitulo div{
+    color: #E83C48;
+    font-size: 14px;
+    margin-right: 10px; 
+    /*margin-bottom: 60px;*/
+    text-align: right;
+    font-family: sans-serif;
+}
+
+.boletin_rad a{
+    color: #FF0000;
+    font-size: 14px;
+    font-family: sans-serif;
+	text-align:left;
+}
+.boletin_rad h2.title_boletin{
+	color: #E83C48;
+	font-size: 14px;
+	line-height:16px;
+	margin-left: 10px; 
+    text-align: right;
+    font-family: sans-serif;
+}
+.boletin_rad div.title_site{
+    font-size: 24px;
+    font-weight: 400;
+    height: 80px;
+	text-align:right;
+    line-height: 30px;
+    margin-bottom: 25px;
+    padding-left: 100px;
+	padding-bottom:40px;
+    color: #020003;
+}
+.boletin_rad h1{
+	border-bottom: 2px dashed #DF001D;
+    /*font-family: 'open_sanssemibold';*/
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -1.2px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    margin-top: 10px;
+    padding-bottom: 8px;
+    color: #666666;
+    font-family: sans-serif;
+}
+
+.boletin_rad p{
+	color: #666666;
+    /*font-family: 'open_sansregular';*/
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.boletin_rad .view ul{
+    margin: 0;
+    padding: 0;
+}
+.boletin_rad .view ul li{
+    margin: 0;
+    list-style: none;
+    width: 230px;
+    float:left;
+    margin-right: 12px;
+    height: 437px;
+    margin-bottom: 5px;
+}
+.boletin_rad .view ul li.views-row-last{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.boletin_rad .views-field-title{
+    margin-top: 2px;
+}
+.boletin_rad .views-field-title a{
+    color: #F7AD0E;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.boletin_rad .views-field-field-subtitulo div{
+    color: #999999;
+    font-size: 12px;
+    font-style: italic;
+    font-family: sans-serif;
+}
+.boletin_rad .form-item{
+    display: none;
+}
+
+/*FOOTER*/
+.footer_boletin{
+    max-width: 740px;
+    padding: 20px 20px 20px 20px;
+    margin: auto;
+    font-family: sans-serif;
+    background-color: #52525A;
+    height: 97px;
+    font-family: sans-serif;
+	text-align:left;
+}
+.footer_boletin .colum1{
+    float: left;
+}
+.footer_boletin .colum2{
+    float: left;
+    width: 240px;
+}
+.footer_boletin .reserved{
+    color: #999999;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.footer_boletin .link_web{
+
+}
+.footer_boletin .link_web a{
+    color: #F7A800;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+.footer_boletin .siguenos{
+    font-size: 18px;
+    font-weight: 400;
+    color:#fff;
+    font-family: sans-serif;
+}
